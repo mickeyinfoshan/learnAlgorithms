@@ -1,7 +1,7 @@
 var fs = require("fs");
 var path = require("path");
 
-var EXCEPT_FOLDERS = ["node_modules", "utils"];
+var EXCEPT_FOLDERS = ["node_modules", "utils", ".git"];
 
 var colors = require('colors');
 
