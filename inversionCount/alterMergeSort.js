@@ -1,6 +1,6 @@
 var divideArr = require("../utils/divideArr");
 
-// 逆序对数量
+// 逆序对数量，修改了归并排序的算法
 function countInversion(input) {
     function merge(origin1, origin2) {
         var arr1 = origin1.arr.slice(0);
@@ -9,10 +9,10 @@ function countInversion(input) {
         var arr1Item = arr1[0];
         var arr2Item = arr2[0];
         var inversionCount = origin1.count + origin2.count;
-        var arr2ShiftedCount = 0;
+        var arr2ShiftedCount = 0; //后边的数组已经shift掉的个数
         while (arr1Item  != undefined && arr2Item != undefined) {
             if(arr1Item < arr2Item) {
-                inversionCount += arr2ShiftedCount;
+                inversionCount += arr2ShiftedCount; // arr1下一个元素比arr2已经shift掉的元素都大，形成逆序
                 merged.push(arr1.shift());
             } else {
                 arr2ShiftedCount++
