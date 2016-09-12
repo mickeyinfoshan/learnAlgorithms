@@ -11,19 +11,19 @@ var _ = require("lodash");
 
 var FAIL_CASES = [];
 
-fs.readdirSync(__dirname).filter(function(filename) {
+fs.readdirSync(__dirname).filter(filename => {
     return EXCEPT_FOLDERS.indexOf(filename) < 0;
-}).filter(function(file) {
+}).filter(file => {
     return fs.statSync(path.join(__dirname, file)).isDirectory();
-}).forEach(function(algSetFolderName) {
+}).forEach(algSetFolderName => {
     var algSetFolder = path.join(__dirname, algSetFolderName);
-    fs.readdirSync(algSetFolder).filter(function(filename) {
+    fs.readdirSync(algSetFolder).filter(filename => {
         return !/^__/.test(filename)
     }).forEach(function(algorithmFileName) {
         var cases = require(path.join(algSetFolder, CASES_FILE_NAME));
         var algorithmPath = path.join(algSetFolder, algorithmFileName);
         var algorithm = require(algorithmPath);
-        cases.forEach(function(testcase, index) {
+        cases.forEach((testcase, index) => {
             var result = algorithm(testcase.input);
             var equal = _.isEqual(result, testcase.expected);
             if(!equal) {
