@@ -24,7 +24,7 @@ function maxHeapify(arr, index) {
     var node = arr[index];
     var leftChild = arr[leftChildIndex];
     var rightChild = arr[rightChildIndex];
-    
+
     var largestNode = node;
     var largestNodeIndex = index;
 
@@ -58,5 +58,6 @@ function buildMaxHeap(arr) {
 
 module.exports = {
     buildMaxHeap,
-    maxHeapify
+    maxHeapify,
+    getParentIndex,
 }
