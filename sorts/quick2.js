@@ -20,8 +20,8 @@ function quickSortIterate(arr, leftIndex, rightIndex) {
         let leftPartLength = 0;
         for(let index = leftIndex; index < rightIndex; index++) {
             let ele = arr[index];
-            let newIndex = leftIndex + leftPartLength
             if(ele < flag) {
+                let newIndex = leftIndex + leftPartLength
                 swapArrayItem(arr, index, newIndex)
                 leftPartLength++
             }
