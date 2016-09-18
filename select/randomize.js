@@ -1,5 +1,6 @@
 const swapArrayItem = require('../utils/swapArrayItem');
 const randomBetween = require("../utils/randomBetween");
+const partition = require("../utils/partition");
 
 function randomizeSelect(input) {
     let {
@@ -29,23 +30,11 @@ function randomizeSelectIterate(arr, leftIndex, rightIndex, sortedIndex) {
 
 }
 
-// 与快速排序的划分类似
+// 随机划分
 function randomizePartition(arr, leftIndex, rightIndex) {
     let randomIndex = Math.floor(randomBetween(leftIndex, rightIndex));
     swapArrayItem(arr, randomIndex, rightIndex);
-    let privot = arr[rightIndex];
-    let smallerPartLength = 0;
-    for(let index = leftIndex; index < rightIndex; index++) {
-        let ele = arr[index];
-        if(ele < privot) {
-            let newIndex = leftIndex + smallerPartLength;
-            swapArrayItem(arr, index, newIndex);
-            smallerPartLength++;
-        }
-    }
-    let privotIndex = leftIndex + smallerPartLength;
-    swapArrayItem(arr, privotIndex, rightIndex);
-    return privotIndex;    
+    return partition(arr, leftIndex, rightIndex)    
 }
 
 module.exports = randomizeSelect;

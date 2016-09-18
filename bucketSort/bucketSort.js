@@ -1,4 +1,4 @@
-let mergeSort = require("../sorts/mergeSort");
+let insertSort = require("../sorts/insertSort");
 
 function bucketSort(input) {
     let arr = input.slice(0);
@@ -15,7 +15,7 @@ function bucketSort(input) {
     let sorted = [];
     tmp.forEach(bucket=>{
         if(bucket) {
-            sorted = sorted.concat(mergeSort(bucket))
+            sorted = sorted.concat(insertSort(bucket))
         }
     })
     return sorted
